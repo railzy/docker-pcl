@@ -24,7 +24,8 @@ RUN apt-get install -y libxmu-dev libxi-dev
 RUN apt-get install -y mono-complete
 RUN apt-get install -y qt5-default
 RUN apt-get install -y openjdk-8-jdk openjdk-8-jre
-RUN apt-get install -y openssh
+RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-client
 
 RUN git clone https://github.com/PointCloudLibrary/pcl pcl-trunk
 
