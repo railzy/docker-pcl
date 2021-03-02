@@ -9,20 +9,41 @@ RUN apt-get install -y cmake cmake-gui
 RUN apt-get install -y libusb-1.0-0-dev libusb-dev libudev-dev
 RUN apt-get install -y mpi-default-dev openmpi-bin openmpi-common  
 
-RUN apt-get install -y libboost-all-dev
-RUN apt-get install -y libeigen3-dev
-RUN apt-get install -y libflann-dev
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libvtk7-qt-dev
-RUN apt-get install -y libqhull-dev 
-RUN apt-get install -y libopenni-dev
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libcuda1-340
 
-RUN apt-get install -y libqhull* libgtest-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libboost-all-dev \
+libeigen3-dev \
+libflann-dev \
+libopenni-dev  \
+libopenni2-dev \
+libpcl-apps1.10  \
+libpcl-common1.10  \
+libpcl-features1.10  \
+libpcl-filters1.10  \
+libpcl-io1.10  \
+libpcl-kdtree1.10  \
+libpcl-keypoints1.10  \
+libpcl-ml1.10  \
+libpcl-octree1.10  \
+libpcl-outofcore1.10  \
+libpcl-people1.10  \
+libpcl-recognition1.10  \
+libpcl-registration1.10  \
+libpcl-sample-consensus1.10  \
+libpcl-search1.10 \
+libpcl-segmentation1.10  \
+libpcl-stereo1.10  \
+libpcl-surface1.10  \
+libpcl-tracking1.10 \
+libpcl-visualization1.10  \
+libqhull-dev \
+libvtk7-dev \
+libvtk7-qt-dev \
+libpcl-doc
+
 
 RUN apt-get install -y freeglut3-dev pkg-config
 RUN apt-get install -y libxmu-dev libxi-dev 
 RUN apt-get install -y mono-complete
-RUN apt-get install -y qt5-default
 RUN apt-get install -y openjdk-8-jdk openjdk-8-jre
 RUN apt-get install -y openssh-server
 RUN apt-get install -y openssh-client
@@ -30,6 +51,6 @@ RUN apt-get install -y openssh-client
 RUN git clone https://github.com/PointCloudLibrary/pcl pcl-trunk
 
 # install pcl
-RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_GPU=ON -DBUILD_apps=ON -DBUILD_examples=ON ..
-RUN cd pcl-trunk/build && make -j2
-RUN cd pcl-trunk/build && make -j2 install
+RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .. \
+  && make -j2 \
+  && make -j2 install
