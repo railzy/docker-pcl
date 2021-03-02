@@ -54,3 +54,5 @@ RUN git clone https://github.com/PointCloudLibrary/pcl pcl-trunk
 RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .. \
   && make -j2 \
   && make -j2 install
+
+ENV  DISPLAY=unix$DISPLAY

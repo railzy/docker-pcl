@@ -17,3 +17,5 @@ RUN apt-get install -y openssh-server
 RUN apt-get install -y openssh-client
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libpcl-dev
+
+ENV  DISPLAY=unix$DISPLAY  
