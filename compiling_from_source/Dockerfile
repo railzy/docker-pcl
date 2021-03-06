@@ -51,7 +51,7 @@ RUN apt-get install -y openssh-client
 RUN git clone https://github.com/PointCloudLibrary/pcl pcl-trunk
 
 # install pcl
-RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .. 
+RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. 
 RUN cd pcl-trunk/build && make 
 RUN cd pcl-trunk/build && make  install
 
