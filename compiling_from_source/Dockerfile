@@ -54,5 +54,6 @@ RUN git clone https://github.com/PointCloudLibrary/pcl pcl-trunk
 RUN cd pcl-trunk && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. 
 RUN cd pcl-trunk/build && make 
 RUN cd pcl-trunk/build && make  install
+RUN cd pcl-trunk/build && make clean
 
 ENV  DISPLAY=unix$DISPLAY
