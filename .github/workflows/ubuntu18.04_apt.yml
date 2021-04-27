@@ -1,9 +1,9 @@
 name: build and push from apt-get
 
 on:
-  # push:
-  #   branches:
-  #     - 'master'
+  push:
+    branches:
+      - 'master'
   schedule:
     - cron: '0 20 * * *'
 
@@ -30,6 +30,6 @@ jobs:
         name: Build and push - from apt-get
         uses: docker/build-push-action@v2
         with:
-          context: ./apt-get/
+          context: ./18.04-apt/
           push: true
-          tags: railzy/docker-pcl:apt
+          tags: railzy/docker-pcl:18.04-apt
